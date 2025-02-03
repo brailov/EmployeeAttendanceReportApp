@@ -1,0 +1,47 @@
+.blue-button {
+  background-color: lightblue;
+  color: black;
+}
+
+.forestgreen-button {
+  background-color: forestgreen;
+  color: black !important;
+}
+
+.red-button {
+  background-color: red;
+  color: black !important;  
+}
+
+.card-body-frame {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.bold-label {
+  font-weight: bold;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center (if needed) */
+}
+.employee-details {
+  margin: 20px;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.detail-row > span:first-child,
+.detail-row > span:nth-child(3) {
+  margin-right: 10px;
+  font-weight: bold;
+}

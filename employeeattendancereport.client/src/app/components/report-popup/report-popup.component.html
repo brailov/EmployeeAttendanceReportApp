@@ -1,0 +1,25 @@
+<div class="popup-wrapper">
+  <h2 class="popup-title">Report Time-Sheet</h2>
+  <form class="popup-form" [formGroup]="_reportForm" (ngSubmit)="save()">
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker class="mat-datepicker-content-container" ></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Start Time</mat-label>
+      <input matInput type="time" formControlName="startTime">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>End Time</mat-label>
+      <input matInput type="time" formControlName="endTime">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-button type="button" (click)="close()">Cancel</button>
+  </form>
+</div>
+

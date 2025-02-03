@@ -1,0 +1,1 @@
+C:\Users\Me\source\repos\EmployeeAttendanceReport\employeeattendancereport.client\obj\Debug\employeeattendancereport.client.esproj.CoreCompileInputs.cache

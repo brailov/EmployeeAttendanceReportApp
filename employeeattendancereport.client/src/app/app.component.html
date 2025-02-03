@@ -1,0 +1,42 @@
+
+<div>
+  <div>
+    <div class="card">
+      <div class="card-header bg-grey-dark">
+        <h3>Workers List:</h3>
+      </div>
+      <div class="card-body col-12">
+          <ng-container *ngIf="(_persons$ | async) as PersonsList">
+            <table class="table" style="width:50%;">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Person Type</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of PersonsList; track $index) {
+                <tr>
+                  <th scope="row">{{item.id}}</th>
+                  <td>{{item.firstName}}</td>
+                  <td>{{item.lastName}}</td>
+                  <td>
+                    <span *ngIf="item.role === null">Manager</span>
+                    <span *ngIf="item.role !== null">Employee</span>
+                  </td>
+                  <td><button mat-button type="button" (click)="showEmployeeDetails(item.id)" class="blue-button">Show Details</button></td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </ng-container>
+      </div>
+    </div>
+  </div>  
+  <div class="text-left">
+    <app-employee-details [selectedItem]="_selectedPerson"></app-employee-details>  
+  </div>
+</div>

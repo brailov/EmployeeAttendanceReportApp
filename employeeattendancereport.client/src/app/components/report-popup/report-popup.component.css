@@ -1,0 +1,27 @@
+.popup-title {
+  margin-bottom: 16px;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.popup-wrapper {
+  padding: 6px;
+}
+
+/* Add this for rounded corners */
+.mat-form-field-appearance-fill .mat-form-field-wrapper {
+  border-radius: 4px;
+}
+
+.mat-datepicker-content {
+  background-color: lightsteelblue !important;
+  color: black !important; /* Ensures text is visible */
+  border-radius: 4px; /* Optional: Adds rounded corners */
+}
+.mat-form-field.mat-focused .mat-datepicker-content-container {
+  background-color: lightgrey !important;
+}

@@ -1,0 +1,75 @@
+<div>
+  <div class="card card-body-frame">
+    <div class="card-header bg-grey-dark">
+      <h3> Employee Details:</h3>
+    </div>
+    <div class="employee-details">
+      <div class="detail-row">
+        <span style="width:90px;">First Name:</span>
+        <span style="width: 110px;">{{_selectedPerson.firstName}}</span>
+        <span style="width:90px;">Last Name:</span>
+        <span>{{_selectedPerson.lastName}}</span>
+      </div>
+
+      <div class="detail-row">
+        <span style="width: 40px;">Role:</span>
+        <span style="width: 160px;">
+          <span *ngIf="_isRowSeleced && _selectedPerson.role === null"></span>
+          <span *ngIf="_isRowSeleced && _selectedPerson.role !== null && _selectedPerson.role == role.None"></span>
+          <span *ngIf="_isRowSeleced && _selectedPerson.role !== null && _selectedPerson.role == role.Nurse">Nurse</span>
+          <span *ngIf="_isRowSeleced && _selectedPerson.role !== null && _selectedPerson.role == role.Doctor">Doctor</span>
+          <span *ngIf="_isRowSeleced && _selectedPerson.role !== null && _selectedPerson.role == role.Secretary">Secretary</span>
+        </span>
+        <span style="width:90px;">Manager:</span>
+        <span>{{_selectedPerson.manager}}</span>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-12 center-container" >
+          <button class="btn btn-secondary" (click)="onClockInOut()" [disabled]="_isSelectedPersonManager">
+            Clock In
+          </button>
+          <span style="width:20px"></span>
+          <button class="btn btn-success" (click)="onClockInOut()" [disabled]="_isSelectedPersonManager">
+            Clock Out
+          </button>
+        </div>
+      </div>
+    </div>   
+    <br />
+    <div *ngIf="_isRowSeleced && _isSelectedPersonManager">
+      <div class="text-left"><h4>Submitted reports (for managers view only):</h4></div>
+      <div class="card-body card-body-frame text-left col-12 center-container">
+        <ng-container *ngIf="(_personReports$ | async) as PersonReports">
+          <table class="table" *ngIf="PersonReports != undefined && PersonReports.length > 0; else noRecords" style="width:50%;">
+            <thead>
+              <tr>
+                <th scope="col" style="min-width:150px;">Name</th>
+                <th scope="col" style="min-width:120px;">Date</th>
+                <th scope="col" style="min-width:100px;">Start Time</th>
+                <th scope="col" style="min-width:80px;">End Time</th>
+                <th style="min-width:100px;"></th>
+                <th style="min-width:100px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of PersonReports; track $index) {
+              <tr>
+                <th>{{item.name}}</th>
+                <td>{{item.date  | date: 'dd/MM/yyyy'}}</td>
+                <td>{{item.startTime}}</td>
+                <td>{{item.endTime}}</td>
+                <td><button mat-button type="button" (click)="updateReportStatus(item.id,reportStatus.Approve,_selectedPerson.id)" class="forestgreen-button">Approve</button></td>
+                <td><button mat-button type="button" (click)="updateReportStatus(item.id,reportStatus.Reject, _selectedPerson.id)" class="red-button">Reject</button></td>
+              </tr>
+              }
+            </tbody>
+          </table>
+          <ng-template #noRecords>
+            <p>No records available</p>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

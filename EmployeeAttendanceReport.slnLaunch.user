@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "EmployeeAttendanceReport.Server\\EmployeeAttendanceReport.Server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "employeeattendancereport.client\\employeeattendancereport.client.esproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

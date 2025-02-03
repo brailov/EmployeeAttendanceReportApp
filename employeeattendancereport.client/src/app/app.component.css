@@ -1,0 +1,42 @@
+:host {
+    max-width: 1280px;
+    padding: 2rem;
+    text-align: center;
+}
+
+th, td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+table {
+    margin: 0 auto;
+}
+
+.blue-button {
+  background-color: lightblue;
+  color: black;
+}
+
+.forestgreen-button {
+  background-color: forestgreen;
+  color: black;
+}
+
+.indianred-button {
+  background-color: indianred;
+  color: black;
+}
+
+.card-body-frame {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.text-left{
+    text-align: left;
+}
+.bold-label {
+  font-weight: bold;
+ 
+}
