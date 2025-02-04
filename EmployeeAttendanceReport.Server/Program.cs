@@ -1,14 +1,16 @@
-using System;
 using EmployeeAttendanceReport.Server.Common;
 using EmployeeAttendanceReport.Server.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddSingleton<IAppDbContextFactory, AppDbContextFactory>();
+
 // Add services to the container.
 builder.Services.AddDbContext<LocalDbContext>(options => options.UseInMemoryDatabase("EmpAttnReportDB"));
 builder.Services.AddControllers();
 builder.Services.AddScoped<IRepository, Repository>();
+
 // Add CORS services
 builder.Services.AddCors(options =>
 {

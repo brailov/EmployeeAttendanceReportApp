@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using EmployeeAttendanceReport.Server.Common;
+﻿using EmployeeAttendanceReport.Server.Common;
 using EmployeeAttendanceReport.Server.Models;
 using EmployeeAttendanceReport.Server.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
